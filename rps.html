@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tuan Nguyen | Rock-Paper-Scissors</title>
+</head>
+<body>
+    <p>Welcome to Rock-Paper-Scissors: Console Version!<br>
+        Press Command + Option + J (Mac) or <br>
+        Control + Shift + J (Windows, Linux, Chrome OS) to play the game.<br>
+        Refresh the page to restart the game. 
+    </p>
+
+    <button onclick="location.reload();">Refresh Page</button>
+  
+  <script>
+    console.log("Welcome to Rock-Paper-Scissors: Console Version!")
+    
+    function computerPlay() {
+        let compHand = ["Rock", "Paper", "Scissors"];
+        return compHand[Math.floor(Math.random() * compHand.length)]; //https://stackoverflow.com/questions/5915096/get-random-item-from-javascript-array
+    }
+
+    function game() {
+        playerWinCount = 0;
+        compWinCount = 0;
+        for (let i = 0; i < 5; i++) {
+            playRound();
+        } 
+
+        if (playerWinCount > compWinCount) {
+            console.log("You win: " + playerWinCount + " - " + compWinCount + ". Congratulations!")
+        } else if (compWinCount > playerWinCount) {
+            console.log("Comp win: " + compWinCount + " - " + playerWinCount + ". Better luck next time!")
+        } else if (playerWinCount == 0 && compWinCount == 0) {
+            console.log("Lol")
+        } else if (playerWinCount == compWinCount) {
+            console.log("It's a draw: " + playerWinCount + " - " + compWinCount)
+        } else {
+            console.log("Result not counted. Please F5 and try again!")
+        }
+    }
+    
+    function playRound(playerSelection, computerSelection) {
+        playerSelection = prompt("Do you wanna throw Rock, Paper, or Scissors?", "");
+        if (playerSelection == null) {
+            console.log("You just choose cancel. Please refresh the page and try again.")
+        }
+
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+
+        console.log("You throw " + playerSelection);
+        computerSelection = computerPlay();
+        console.log("Comp throw " + computerSelection);
+
+        if (playerSelection == "Rock" && computerSelection == "Scissors") {
+            console.log("You win! Rock beats Scissors!")
+            playerWinCount = playerWinCount + 1;
+        } else if (playerSelection == "Rock" && computerSelection == "Paper") {
+            console.log("Comp wins! Paper beats Rock!")
+            compWinCount = compWinCount + 1;
+        } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+            console.log("You win! Scissors beats Paper!")
+            playerWinCount = playerWinCount + 1;
+        } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+            console.log("Comp wins! Rock beats Scissors!")
+            compWinCount = compWinCount + 1;
+        } else if (playerSelection == "Paper" && computerSelection == "Rock") {
+            console.log("You win! Paper beats Rock!")
+            playerWinCount = playerWinCount + 1;
+        } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+            console.log("Comp wins! Scissors beats Paper!")
+            compWinCount = compWinCount + 1;
+        } else if ((playerSelection == "Rock" && computerSelection == "Rock") || 
+                    (playerSelection == "Scissors" && computerSelection == "Scissors") || 
+                    (playerSelection == "Paper" && computerSelection == "Paper")) {
+            console.log("It's a draw!")
+        } else {
+            console.log("Whoops")
+        }
+    }
+
+    game();
+
+  </script>
+</body>
+</html>
+
+
+
