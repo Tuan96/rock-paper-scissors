@@ -9,7 +9,7 @@ You can also try the live version here:
 
 ## Built With
 
-HTML, CSS, and JavaScript. 
+HTML and JavaScript. 
 
 ## Author
 
