@@ -17,8 +17,5 @@ Tuan Nguyen
 
 ## Thoughts
 
-This is a simple project that I built to learn JavaScript. Any feedback is greatly appreciated. 
+This is a simple project that I built to learn JavaScript. Any feedback is greatly appreciated. Thank you. 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
