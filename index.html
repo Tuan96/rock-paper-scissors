@@ -3,84 +3,191 @@
 <head>
   <meta charset="utf-8">
   <title>Tuan Nguyen | Rock-Paper-Scissors</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <p>Welcome to Rock-Paper-Scissors: Console Version!<br>
-        Press Command + Option + J (Mac) or <br>
-        Control + Shift + J (Windows, Linux, Chrome OS) to play the game.<br>
-        Refresh the page to restart the game. 
-    </p>
+    <h3>The Rock Paper Scissors Game</h3>
+    <h3>Whoever gets 5 first wins!</h3>
+    <div id="image">
+        <img id="rock" src="images/rock.png">
+        <img id="paper" src="images/paper.png">
+        <img id="scissors" src="images/scissors.png">
+    </div>
 
-    <button onclick="location.reload();">Refresh Page</button>
+    <h3 id="roundCount"></h3>
+
+    <div id="yourMoveResult">
+        <h3>You</h3>
+        <div id="yourMoveText"></div>
+    </div>
+    
+    <div id="compMoveResult">
+        <h3>Computer</h3>
+        <div id="compMoveText"></div>
+    </div>
+
+    <div id="yourMove"></div>
+    <div id="compMove"></div>
+    
+    <div id="result"></div>
+    <div id="total"></div>
+    <div id="final"></div>
+    <div id="again"></div>
+    
+    <br />
+    <button onclick="location.reload();">Restart</button>
   
   <script>
+    let playerWinCount = 0;
+    let compWinCount = 0;
+    let roundCount = 0;
+    let removeImage = document.getElementById('image');
+
+    // let imgRock = document.createElement("img");
+    // imgRock.src = "images/rock.png";
+    // imgRock.style.cssText = 'height: 150px; width: 150px';
+
+
+    // let imgPaper = document.createElement("img");
+    // imgPaper.src = "images/paper.png";
+    // imgPaper.style.cssText = 'height: 150px; width: 150px';
+
+
+    // let imgScissors = document.createElement("img");
+    // imgScissors.src = "images/scissors.png";
+    // imgScissors.style.cssText = 'height: 150px; width: 150px';
+
+
+    const rock = document.getElementById("rock");
+    rock.addEventListener("click", function() {
+        document.getElementById("yourMove").innerHTML = "";
+        document.getElementById("yourMoveText").innerHTML = "Rock";
+        document.getElementById("yourMove").innerHTML = "<img src=\"images/rock.png\" width=\"150px\" height=\"150px\">";
+        // let yourRock = document.getElementById("yourMove");
+        // yourRock.appendChild(imgRock);
+        playRound(playerSelection = "Rock");
+    });
+
+    const paper = document.getElementById("paper");
+    paper.addEventListener("click", function() {
+        document.getElementById("yourMove").innerHTML = "";
+        document.getElementById("yourMoveText").innerHTML = "Paper";
+        document.getElementById("yourMove").innerHTML = "<img src=\"images/paper.png\" width=\"150px\" height=\"150px\">";
+        // let yourPaper = document.getElementById("yourMove");
+        // yourPaper.appendChild(imgPaper);
+        playRound(playerSelection = "Paper");
+    });
+
+    const scissors = document.getElementById("scissors");
+    scissors.addEventListener("click", function() {
+        document.getElementById("yourMove").innerHTML = "";
+        document.getElementById("yourMoveText").innerHTML = "Scissors";
+        document.getElementById("yourMove").innerHTML = "<img src=\"images/scissors.png\" width=\"150px\" height=\"150px\">";
+        // let yourScissors = document.getElementById("yourMove");
+        // yourScissors.appendChild(imgScissors);
+        playRound(playerSelection = "Scissors");
+    });
+
     console.log("Welcome to Rock-Paper-Scissors: Console Version!")
-    
+
     function computerPlay() {
         let compHand = ["Rock", "Paper", "Scissors"];
-        return compHand[Math.floor(Math.random() * compHand.length)]; //https://stackoverflow.com/questions/5915096/get-random-item-from-javascript-array
+        // https://stackoverflow.com/questions/5915096/get-random-item-from-javascript-array
+        return compHand[Math.floor(Math.random() * compHand.length)]; 
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        console.log("You throw " + playerSelection);
+        computerSelection = computerPlay();
+        document.getElementById("compMove").innerHTML = "";
+
+        if (computerSelection == "Rock") {
+            document.getElementById("compMoveText").innerHTML = "Rock";
+            document.getElementById("compMove").innerHTML = "<img src=\"images/rock.png\" width=\"150px\" height=\"150px\">";
+        } else if (computerSelection == "Paper") {
+            document.getElementById("compMoveText").innerHTML = "Paper";
+            document.getElementById("compMove").innerHTML = "<img src=\"images/paper.png\" width=\"150px\" height=\"150px\">";
+        } else if (computerSelection == "Scissors") {
+            document.getElementById("compMoveText").innerHTML = "Scissors";
+            document.getElementById("compMove").innerHTML = "<img src=\"images/scissors.png\" width=\"150px\" height=\"150px\">";
+        }
+
+        console.log("Comp throws " + computerSelection);
+        // document.getElementById("compMove").innerHTML = "Comp throws " + computerSelection + ".";
+
+        if ((playerSelection == "Rock" && computerSelection == "Scissors") || 
+            (playerSelection == "Scissors" && computerSelection == "Paper") || 
+            (playerSelection == "Paper" && computerSelection == "Rock")) {
+            
+            console.log("You win!")
+            document.getElementById("result").innerHTML = "You win!";
+           
+            if (playerWinCount == 5) {
+                checkTotal();
+            } else {
+                playerWinCount += 1;
+                roundCount += 1;
+            }
+
+        } 
+        else if ((playerSelection == "Rock" && computerSelection == "Paper") || 
+                (playerSelection == "Scissors" && computerSelection == "Rock") || 
+                (playerSelection == "Paper" && computerSelection == "Scissors")) {
+                
+                console.log("Comp wins!")
+                document.getElementById("result").innerHTML = "Comp wins!";
+           
+            if (compWinCount == 5) {
+                checkTotal();
+            } else {
+                compWinCount += 1;
+                roundCount += 1;
+            }
+
+        } 
+        else if ((playerSelection == "Rock" && computerSelection == "Rock") || 
+                    (playerSelection == "Scissors" && computerSelection == "Scissors") || 
+                    (playerSelection == "Paper" && computerSelection == "Paper")) {
+            
+            console.log("Draw!")
+            document.getElementById("result").innerHTML = "Draw!";
+            roundCount += 1;
+        } 
+
+        game();
     }
 
     function game() {
-        playerWinCount = 0;
-        compWinCount = 0;
-        for (let i = 0; i < 5; i++) {
-            playRound();
-        } 
-
         if (playerWinCount > compWinCount) {
-            console.log("You win: " + playerWinCount + " - " + compWinCount + ". Congratulations!")
+            console.log("You win: " + playerWinCount + " - " + compWinCount + ".")
+            document.getElementById("roundCount").innerHTML = "Round " + roundCount;
+            document.getElementById("total").innerHTML = "You win: " + playerWinCount + " - " + compWinCount + ".";
         } else if (compWinCount > playerWinCount) {
-            console.log("Comp win: " + compWinCount + " - " + playerWinCount + ". Better luck next time!")
-        } else if (playerWinCount == 0 && compWinCount == 0) {
-            console.log("Lol")
+            console.log("Comp win: " + compWinCount + " - " + playerWinCount + ".")
+            document.getElementById("roundCount").innerHTML = "Round " + roundCount;
+            document.getElementById("total").innerHTML = "Comp wins: " + compWinCount + " - " + playerWinCount + ".";
         } else if (playerWinCount == compWinCount) {
             console.log("It's a draw: " + playerWinCount + " - " + compWinCount)
-        } else {
-            console.log("Result not counted. Please F5 and try again!")
-        }
+            document.getElementById("roundCount").innerHTML = "Round " + roundCount;
+            document.getElementById("total").innerHTML = "It's a draw: " + playerWinCount + " - " + compWinCount + ".";
+        } 
+
+        checkTotal();
+    } 
+
+    function checkTotal() {
+        if (playerWinCount === 5) {
+            console.log("You're the winner! You beat Comp " + playerWinCount + " - " + compWinCount + ". Congrats!");
+            document.getElementById("final").innerHTML = "You're the winner! You beat Comp " + playerWinCount + " - " + compWinCount + ". Congrats!";
+            document.getElementById("again").innerHTML = "Click restart if you wanna give it another go."
+            removeImage.remove(); 
+        } else if (compWinCount === 5) {
+            console.log("Comp is the winner! Comp beats you " + compWinCount + " - " + playerWinCount + ". Better luck next time!");
+            document.getElementById("final").innerHTML = "Comp is the winner! Comp beats you " + compWinCount + " - " + playerWinCount + ". Better luck next time!";
+            document.getElementById("again").innerHTML = "Click restart if you wanna give it another go." 
+            removeImage.remove(); 
+        } 
     }
-    
-    function playRound(playerSelection, computerSelection) {
-        playerSelection = prompt("Do you wanna throw Rock, Paper, or Scissors?", "");
-        if (playerSelection == null) {
-            console.log("You just choose cancel. Please refresh the page and try again.")
-        }
-
-        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-
-        console.log("You throw " + playerSelection);
-        computerSelection = computerPlay();
-        console.log("Comp throw " + computerSelection);
-
-        if (playerSelection == "Rock" && computerSelection == "Scissors") {
-            console.log("You win! Rock beats Scissors!")
-            playerWinCount = playerWinCount + 1;
-        } else if (playerSelection == "Rock" && computerSelection == "Paper") {
-            console.log("Comp wins! Paper beats Rock!")
-            compWinCount = compWinCount + 1;
-        } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-            console.log("You win! Scissors beats Paper!")
-            playerWinCount = playerWinCount + 1;
-        } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-            console.log("Comp wins! Rock beats Scissors!")
-            compWinCount = compWinCount + 1;
-        } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-            console.log("You win! Paper beats Rock!")
-            playerWinCount = playerWinCount + 1;
-        } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-            console.log("Comp wins! Scissors beats Paper!")
-            compWinCount = compWinCount + 1;
-        } else if ((playerSelection == "Rock" && computerSelection == "Rock") || 
-                    (playerSelection == "Scissors" && computerSelection == "Scissors") || 
-                    (playerSelection == "Paper" && computerSelection == "Paper")) {
-            console.log("It's a draw!")
-        } else {
-            console.log("Whoops")
-        }
-    }
-
-    game();
 
   </script>
 </body>

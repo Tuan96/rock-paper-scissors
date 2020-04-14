@@ -1,0 +1,54 @@
+body {
+    background-image: url("images/greenboard.jpg");
+    color: white;  
+    text-align: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; 
+}
+
+#yourMove {
+    float: left;
+    width: 50%;
+    padding-top: 10px;
+}
+
+#yourMoveResult {
+    float: left;
+    width: 50%;
+}
+
+/* #yourMoveText {
+    float: left;
+    width: 50%;
+    padding-bottom: 10px;
+} */
+
+
+#compMove {
+    float: right;
+    width: 50%;
+    padding-top: 10px;
+}
+
+/* #compMoveText {
+    float: right;
+    width: 50%;
+} */
+
+#compMoveResult {
+    float: right;
+    width: 50%;
+}
+
+#image img{
+    height: 100px;
+    width: 100px;
+}
+
+#final {
+    text-decoration: solid;
+    font-size: 1.5em;
+}
+
+#result {
+    font-size: 1.5em;
+}
