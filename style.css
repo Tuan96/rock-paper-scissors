@@ -46,21 +46,21 @@ body {
 }
 
 #image img{
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
 }
 
 #final {
     text-decoration: solid;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 #result {
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 #roundCount {
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 button {
