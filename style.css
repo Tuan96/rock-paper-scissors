@@ -18,7 +18,7 @@ body {
 #yourMoveResult {
     float: left;
     width: 50%;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 /* #yourMoveText {
@@ -42,7 +42,7 @@ body {
 #compMoveResult {
     float: right;
     width: 50%;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 #image img{
@@ -61,4 +61,19 @@ body {
 
 #roundCount {
     font-size: 1.5em;
+}
+
+button {
+    background-color: #008b8b; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+button:hover {
+    opacity: 0.8;
 }

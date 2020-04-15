@@ -62,7 +62,7 @@
     rock.addEventListener("click", function() {
         document.getElementById("yourMove").innerHTML = "";
         document.getElementById("yourMoveText").innerHTML = "Rock";
-        document.getElementById("yourMove").innerHTML = "<img src=\"images/rock.png\" width=\"150px\" height=\"150px\">";
+        document.getElementById("yourMove").innerHTML = "<img src=\"images/rock.png\" width=\"120px\" height=\"120px\">";
         // let yourRock = document.getElementById("yourMove");
         // yourRock.appendChild(imgRock);
         playRound(playerSelection = "Rock");
@@ -72,7 +72,7 @@
     paper.addEventListener("click", function() {
         document.getElementById("yourMove").innerHTML = "";
         document.getElementById("yourMoveText").innerHTML = "Paper";
-        document.getElementById("yourMove").innerHTML = "<img src=\"images/paper.png\" width=\"150px\" height=\"150px\">";
+        document.getElementById("yourMove").innerHTML = "<img src=\"images/paper.png\" width=\"120px\" height=\"120px\">";
         // let yourPaper = document.getElementById("yourMove");
         // yourPaper.appendChild(imgPaper);
         playRound(playerSelection = "Paper");
@@ -82,7 +82,7 @@
     scissors.addEventListener("click", function() {
         document.getElementById("yourMove").innerHTML = "";
         document.getElementById("yourMoveText").innerHTML = "Scissors";
-        document.getElementById("yourMove").innerHTML = "<img src=\"images/scissors.png\" width=\"150px\" height=\"150px\">";
+        document.getElementById("yourMove").innerHTML = "<img src=\"images/scissors.png\" width=\"120px\" height=\"120px\">";
         // let yourScissors = document.getElementById("yourMove");
         // yourScissors.appendChild(imgScissors);
         playRound(playerSelection = "Scissors");
@@ -103,13 +103,13 @@
 
         if (computerSelection == "Rock") {
             document.getElementById("compMoveText").innerHTML = "Rock";
-            document.getElementById("compMove").innerHTML = "<img src=\"images/rock.png\" width=\"150px\" height=\"150px\">";
+            document.getElementById("compMove").innerHTML = "<img src=\"images/rock.png\" width=\"120px\" height=\"120px\">";
         } else if (computerSelection == "Paper") {
             document.getElementById("compMoveText").innerHTML = "Paper";
-            document.getElementById("compMove").innerHTML = "<img src=\"images/paper.png\" width=\"150px\" height=\"150px\">";
+            document.getElementById("compMove").innerHTML = "<img src=\"images/paper.png\" width=\"120px\" height=\"120px\">";
         } else if (computerSelection == "Scissors") {
             document.getElementById("compMoveText").innerHTML = "Scissors";
-            document.getElementById("compMove").innerHTML = "<img src=\"images/scissors.png\" width=\"150px\" height=\"150px\">";
+            document.getElementById("compMove").innerHTML = "<img src=\"images/scissors.png\" width=\"120px\" height=\"120px\">";
         }
 
         console.log("Comp throws " + computerSelection);
