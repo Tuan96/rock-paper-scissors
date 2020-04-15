@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h3>The Rock Paper Scissors Game</h3>
+    <h3>Rock Paper Scissors Game</h3>
     <h3>Whoever gets 5 first wins!</h3>
     <div id="image">
         <img id="rock" src="images/rock.png">
@@ -14,15 +14,15 @@
         <img id="scissors" src="images/scissors.png">
     </div>
 
-    <h3 id="roundCount"></h3>
+    <div id="roundCount"></div>
 
     <div id="yourMoveResult">
-        <h3>You</h3>
+        <div>You</div>
         <div id="yourMoveText"></div>
     </div>
     
     <div id="compMoveResult">
-        <h3>Computer</h3>
+        <div>Computer</div>
         <div id="compMoveText"></div>
     </div>
 
@@ -178,12 +178,12 @@
     function checkTotal() {
         if (playerWinCount === 5) {
             console.log("You're the winner! You beat Comp " + playerWinCount + " - " + compWinCount + ". Congrats!");
-            document.getElementById("final").innerHTML = "You're the winner! You beat Comp " + playerWinCount + " - " + compWinCount + ". Congrats!";
+            document.getElementById("final").innerHTML = "You're the winner! Congrats!";
             document.getElementById("again").innerHTML = "Click restart if you wanna give it another go."
             removeImage.remove(); 
         } else if (compWinCount === 5) {
             console.log("Comp is the winner! Comp beats you " + compWinCount + " - " + playerWinCount + ". Better luck next time!");
-            document.getElementById("final").innerHTML = "Comp is the winner! Comp beats you " + compWinCount + " - " + playerWinCount + ". Better luck next time!";
+            document.getElementById("final").innerHTML = "Comp is the winner! Better luck next time!";
             document.getElementById("again").innerHTML = "Click restart if you wanna give it another go." 
             removeImage.remove(); 
         } 
