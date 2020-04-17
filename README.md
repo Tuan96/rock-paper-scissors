@@ -1,10 +1,11 @@
 # Tuan96 | Rock-Paper-Scissors
 
-This is Rock-Paper-Scissors.
+This is Rock-Paper-Scissors - Browser version.
 
-## How to Play
+## Installation
 
-Live version here: https://tuan96.github.io/rock-paper-scissors/
+After you clone or download the code, open the index.html in your selected browser to get started.
+You can also try the live version here: https://tuan96.github.io/rock-paper-scissors/
 
 ## Built With
 
