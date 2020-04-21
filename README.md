@@ -1,11 +1,17 @@
 # Tuan96 | Rock-Paper-Scissors
 
-This is Rock-Paper-Scissors - Browser version.
+This is Rock-Paper-Scissors - Browser and Console version.
 
 ## Installation
 
-After you clone or download the code, open the index.html in your selected browser to get started.
+After you clone or download the code, open the index.html in your selected browser to get started\. 
 You can also try the live version here: https://tuan96.github.io/rock-paper-scissors/
+
+## How To Play
+
+You can find the rules here: https://en.wikipedia.org/wiki/Rock_paper_scissors\
+Each winning hand equals 1 point. Draw equals 0 point. Whoever gets 5 first wins. 
+
 
 ## Built With
 
