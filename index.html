@@ -177,14 +177,14 @@
 
     function checkTotal() {
         if (playerWinCount === 5) {
-            console.log("You're the winner! You beat Comp " + playerWinCount + " - " + compWinCount + ". Congrats!");
+            console.log("You're the winner! You beat Comp " + playerWinCount + " - " + compWinCount + ". Congrats! Refresh if you wanna go again.");
             document.getElementById("final").innerHTML = "You're the winner! Congrats!";
-            document.getElementById("again").innerHTML = "Click restart if you wanna give it another go."
+            document.getElementById("again").innerHTML = "Wanna give it another go?"
             removeImage.remove(); 
         } else if (compWinCount === 5) {
-            console.log("Comp is the winner! Comp beats you " + compWinCount + " - " + playerWinCount + ". Better luck next time!");
+            console.log("Comp is the winner! Comp beats you " + compWinCount + " - " + playerWinCount + ". Better luck next time! Refresh to try again.");
             document.getElementById("final").innerHTML = "Comp is the winner! Better luck next time!";
-            document.getElementById("again").innerHTML = "Click restart if you wanna give it another go." 
+            document.getElementById("again").innerHTML = "Wanna try again?" 
             removeImage.remove(); 
         } 
     }
